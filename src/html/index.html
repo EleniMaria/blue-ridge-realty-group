@@ -1,0 +1,2140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Blue Ridge Realty Group | Western North Carolina Mountain Real Estate
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0d2f4f;
+        --blue: #1e4f7a;
+        --mist: #5d7fa6;
+        --evergreen: #2e5e3e;
+        --sage: #7fa58a;
+        --warmwhite: #f2f4f2;
+        --paper: #fbfaf7;
+        --copper: #b9794c;
+        --ink: #1b2a2f;
+        --line: rgba(13, 47, 79, 0.12);
+        --shadow: 0 18px 40px -22px rgba(13, 47, 79, 0.35);
+        --r-card: 4px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        margin: 0;
+        color: var(--navy);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      p {
+        margin: 0;
+        line-height: 1.65;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 0 20px;
+        }
+      }
+
+      /* Eyebrow label - matches brand guide style */
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        font-size: 12.5px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--evergreen);
+        margin-bottom: 14px;
+      }
+      .eyebrow::after {
+        content: "";
+        height: 1px;
+        width: 46px;
+        background: var(--sage);
+        display: inline-block;
+      }
+      .eyebrow .leaf {
+        width: 13px;
+        height: 13px;
+        opacity: 0.9;
+      }
+
+      /* Winding river divider - signature motif echoing the logo */
+      .river-divider {
+        width: 100%;
+        height: 34px;
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+      .river-divider svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 32px;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand img {
+        height: 42px;
+        width: auto;
+      }
+      .brand-word {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 19px;
+        color: var(--navy);
+        line-height: 1.1;
+      }
+      .brand-word span {
+        display: block;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: var(--evergreen);
+      }
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: var(--navy);
+        position: relative;
+        padding-bottom: 4px;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: var(--copper);
+        transition: width 0.25s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        background: var(--navy);
+        color: #fff !important;
+        padding: 11px 22px;
+        font-size: 13px;
+        border-radius: 2px;
+        letter-spacing: 0.5px;
+      }
+      .nav-cta::after {
+        display: none;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .menu-toggle svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--navy);
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        nav.open {
+          display: flex;
+          position: absolute;
+          top: 74px;
+          left: 0;
+          right: 0;
+          background: var(--paper);
+          border-bottom: 1px solid var(--line);
+          padding: 10px 32px 22px;
+        }
+        nav.open ul {
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          #eaf0f1 0%,
+          #dce6e8 55%,
+          var(--paper) 100%
+        );
+        padding-top: 64px;
+      }
+      .hero-scene {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .hero-content {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+        margin-top: -180px;
+        padding-bottom: 64px;
+        z-index: 5;
+      }
+      @media (max-width: 780px) {
+        .hero-content {
+          margin-top: -90px;
+        }
+      }
+      .hero-card {
+        background: rgba(251, 250, 247, 0.92);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        padding: 46px 48px;
+        max-width: 620px;
+        box-shadow: var(--shadow);
+      }
+      .hero h1 {
+        font-size: 46px;
+        line-height: 1.12;
+        margin-bottom: 16px;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--evergreen);
+      }
+      .hero .sub {
+        font-size: 17px;
+        color: var(--blue);
+        font-weight: 400;
+        max-width: 480px;
+        margin-bottom: 28px;
+      }
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 32px;
+        }
+        .hero-card {
+          padding: 30px 26px;
+        }
+      }
+
+      .search-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+      .search-bar select,
+      .search-bar input {
+        border: none;
+        background: transparent;
+        padding: 16px 18px;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        color: var(--ink);
+        flex: 1;
+        min-width: 120px;
+        border-right: 1px solid var(--line);
+      }
+      .search-bar button {
+        border: none;
+        background: var(--copper);
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        font-size: 13px;
+        text-transform: uppercase;
+        padding: 16px 26px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .search-bar button:hover {
+        background: var(--navy);
+      }
+      @media (max-width: 560px) {
+        .search-bar {
+          flex-direction: column;
+        }
+        .search-bar select {
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+          width: 100%;
+        }
+        .search-bar button {
+          width: 100%;
+        }
+      }
+
+      /* ===== SECTION GENERIC ===== */
+      section {
+        padding: 84px 0;
+      }
+      @media (max-width: 700px) {
+        section {
+          padding: 56px 0;
+        }
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+      }
+      .section-head h2 {
+        font-size: 34px;
+      }
+      .section-head .lede {
+        max-width: 380px;
+        color: var(--blue);
+        font-size: 15.5px;
+        padding-bottom: 4px;
+      }
+      .view-all {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        color: var(--evergreen);
+        border-bottom: 1.5px solid var(--evergreen);
+        padding-bottom: 3px;
+        white-space: nowrap;
+      }
+
+      .alt-bg {
+        background: #efeee8;
+      }
+
+      /* ===== PILLARS (Why choose us) ===== */
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px;
+      }
+      @media (max-width: 900px) {
+        .pillars {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 520px) {
+        .pillars {
+          grid-template-columns: 1fr;
+        }
+      }
+      .pillar {
+        text-align: left;
+      }
+      .pillar .icon-wrap {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        background: var(--warmwhite);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border: 1px solid var(--line);
+      }
+      .pillar .icon-wrap img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+      .pillar h3 {
+        font-size: 19px;
+        margin-bottom: 10px;
+      }
+      .pillar p {
+        font-size: 14.5px;
+        color: #4b5a5e;
+      }
+
+      /* ===== CARDS GRID (properties / blog) ===== */
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      @media (max-width: 920px) {
+        .grid-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .prop-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .prop-card:hover {
+        transform: translateY(-5px);
+      }
+      .prop-card .thumb {
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+      }
+      .prop-card .thumb svg {
+        width: 100%;
+        height: 100%;
+      }
+      .prop-card .tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: var(--copper);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        padding: 5px 11px;
+      }
+      .prop-card .body {
+        padding: 22px 22px 24px;
+      }
+      .prop-card .price {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        color: var(--navy);
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .prop-card .addr {
+        font-size: 13.5px;
+        color: #5b6a6e;
+        margin-bottom: 12px;
+      }
+      .prop-card .meta {
+        display: flex;
+        gap: 14px;
+        font-size: 12.5px;
+        color: var(--blue);
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+
+      /* ===== COMMUNITIES ===== */
+      .community-scroll {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      @media (max-width: 920px) {
+        .community-scroll {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .community-scroll {
+          grid-template-columns: 1fr;
+        }
+      }
+      .community-card {
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        display: block;
+        color: inherit;
+      }
+      .community-card svg {
+        width: 100%;
+        height: 230px;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .community-card:hover svg {
+        transform: scale(1.06);
+      }
+      .community-card .label {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 20px 18px 16px;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(13, 47, 79, 0.78)
+        );
+      }
+      .community-card .label h3 {
+        color: #fff;
+        font-size: 19px;
+        margin-bottom: 4px;
+      }
+      .community-card .label p {
+        color: #dce6e8;
+        font-size: 12.5px;
+      }
+
+      /* ===== TEAM ===== */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+      }
+      @media (max-width: 900px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 520px) {
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .agent-card {
+        text-align: center;
+      }
+      .avatar {
+        width: 108px;
+        height: 108px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 30px;
+        font-weight: 600;
+        color: #fff;
+        border: 3px solid #fff;
+        box-shadow: var(--shadow);
+      }
+      .agent-card h3 {
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
+      .agent-card .role {
+        font-size: 12px;
+        color: var(--evergreen);
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .agent-card p.bio {
+        font-size: 13.5px;
+        color: #5b6a6e;
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      @media (max-width: 760px) {
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .testimonial {
+        background: var(--navy);
+        color: #fff;
+        padding: 38px 38px 32px;
+        position: relative;
+      }
+      .testimonial .quote-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 60px;
+        color: var(--copper);
+        line-height: 0.5;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .testimonial p.quote {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #e7ecec;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .testimonial .who {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        color: var(--sage);
+        text-transform: uppercase;
+      }
+
+      /* ===== CONTACT CTA ===== */
+      .cta-band {
+        background: var(--evergreen);
+        color: #fff;
+        text-align: center;
+        padding: 70px 32px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band h2 {
+        color: #fff;
+        font-size: 32px;
+        margin-bottom: 14px;
+      }
+      .cta-band p {
+        color: #d8e6dc;
+        max-width: 480px;
+        margin: 0 auto 28px;
+        font-size: 15.5px;
+      }
+      .btn-light {
+        display: inline-block;
+        background: #fff;
+        color: var(--evergreen) !important;
+        font-weight: 700;
+        padding: 15px 34px;
+        font-size: 13.5px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        border: none;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn-light:hover {
+        background: var(--copper);
+        color: #fff !important;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--navy);
+        color: #c9d5da;
+        padding: 56px 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 44px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      @media (max-width: 820px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 520px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      footer h4 {
+        color: #fff;
+        font-size: 13px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+      footer .brand img {
+        height: 40px;
+      }
+      footer .footer-brand-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .footer-logo-badge {
+        background: #fff;
+        padding: 6px 8px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 3px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      }
+      .footer-logo-badge img {
+        height: 32px;
+        width: auto;
+        display: block;
+      }
+      footer .footer-brand-row span {
+        font-family: "Playfair Display", serif;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      footer p.desc {
+        font-size: 13.5px;
+        color: #9fb2b8;
+        max-width: 280px;
+      }
+      footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      footer ul li {
+        margin-bottom: 11px;
+        font-size: 13.5px;
+      }
+      footer ul li a:hover {
+        color: #fff;
+      }
+      .social-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .social-row a {
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .footer-bottom {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 22px 32px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #7C92998;
+        color: #8aa0a6;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: translateY(10px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.is-visible {
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          transform: none;
+          transition: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-inner">
+        <a href="#" class="brand">
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Blue Ridge Realty Group logo"
+          />
+          <span class="brand-word">Blue Ridge<span>REALTY GROUP</span></span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu" id="menuToggle">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <nav id="primaryNav">
+          <ul>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="#communities">Communities</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" style="padding-bottom: 0">
+      <svg
+        class="hero-scene"
+        viewBox="0 0 1600 480"
+        preserveAspectRatio="xMidYMax slice"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="hBack" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#9FB6C9" />
+            <stop offset="100%" stop-color="#7C99B3" />
+          </linearGradient>
+          <linearGradient id="hMid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#5D7FA6" />
+            <stop offset="100%" stop-color="#3F6488" />
+          </linearGradient>
+          <linearGradient id="hFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1E4F7A" />
+            <stop offset="100%" stop-color="#0D2F4F" />
+          </linearGradient>
+          <linearGradient id="hRiver" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EAF1F0" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#C9DBD9" stop-opacity="0.5" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,230 L180,120 L340,210 L520,90 L700,200 L880,110 L1080,215 L1280,100 L1460,205 L1600,140 L1600,480 L0,480 Z"
+          fill="url(#hBack)"
+          opacity="0.55"
+        />
+        <path
+          d="M0,300 L220,180 L420,270 L640,150 L860,260 L1080,170 L1300,275 L1600,190 L1600,480 L0,480 Z"
+          fill="url(#hMid)"
+          opacity="0.75"
+        />
+        <path
+          d="M0,480 L0,360 L160,260 L300,330 L470,230 L640,320 L800,240 L980,330 L1160,250 L1340,335 L1500,260 L1600,310 L1600,480 Z"
+          fill="url(#hFront)"
+        />
+        <path
+          d="M760,480 C780,400 740,360 790,300 C830,255 800,220 840,170 C860,145 850,125 870,100"
+          fill="none"
+          stroke="url(#hRiver)"
+          stroke-width="14"
+          stroke-linecap="round"
+        />
+        <path
+          d="M40,443.2 L28.56,467.12 L33.344,467.12 L22.32,480 L57.68,480 L46.656,467.12 L51.44,467.12 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M95,436.3 L81.41499999999999,464.705 L87.096,464.705 L74.005,480 L115.995,480 L102.904,464.705 L108.58500000000001,464.705 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M150,429.4 L134.27,462.29 L140.848,462.29 L125.69,480 L174.31,480 L159.152,462.29 L165.73,462.29 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1190,443.2 L1178.56,467.12 L1183.344,467.12 L1172.32,480 L1207.68,480 L1196.656,467.12 L1201.44,467.12 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1260,436.3 L1246.415,464.705 L1252.096,464.705 L1239.005,480 L1280.995,480 L1267.904,464.705 L1273.585,464.705 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1330,429.4 L1314.27,462.29 L1320.848,462.29 L1305.69,480 L1354.31,480 L1339.152,462.29 L1345.73,462.29 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1400,443.2 L1388.56,467.12 L1393.344,467.12 L1382.32,480 L1417.68,480 L1406.656,467.12 L1411.44,467.12 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1480,436.3 L1466.415,464.705 L1472.096,464.705 L1459.005,480 L1500.995,480 L1487.904,464.705 L1493.585,464.705 Z"
+          fill="#0A2740"
+        />
+        <path
+          d="M1550,429.4 L1534.27,462.29 L1540.848,462.29 L1525.69,480 L1574.31,480 L1559.152,462.29 L1565.73,462.29 Z"
+          fill="#0A2740"
+        />
+      </svg>
+      <div class="hero-content">
+        <div class="hero-card reveal">
+          <div class="eyebrow">
+            <svg
+              class="leaf"
+              viewBox="0 0 24 24"
+              width="13"
+              height="13"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2l5 7H7l5-7z" />
+              <path d="M12 8l6 8H6l6-8z" />
+              <line x1="12" y1="22" x2="12" y2="14" /></svg
+            >Western North Carolina
+          </div>
+          <h1>Mountain living<br />begins <em>here.</em></h1>
+          <p class="sub">
+            Connecting people with homes in the heart of the Blue Ridge
+            Mountains.
+          </p>
+          <form class="search-bar" onsubmit="return false;">
+            <select aria-label="Town">
+              <option>Any Town</option>
+              <option>Asheville</option>
+              <option>Boone</option>
+              <option>Banner Elk</option>
+              <option>Blowing Rock</option>
+              <option>Hendersonville</option>
+              <option>Brevard</option>
+              <option>Black Mountain</option>
+              <option>Waynesville</option>
+            </select>
+            <select aria-label="Price range">
+              <option>Any Price</option>
+              <option>$200k – $400k</option>
+              <option>$400k – $700k</option>
+              <option>$700k – $1.2M</option>
+              <option>$1.2M+</option>
+            </select>
+            <button type="submit">Search Homes</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY CHOOSE US ================= -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Why Blue Ridge Realty Group
+            </div>
+            <h2>Real estate, rooted locally.</h2>
+          </div>
+          <p class="lede">
+            A boutique agency built around the towns we actually live in — not a
+            franchise script.
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <div class="icon-wrap">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+              />
+            </div>
+            <h3>Rooted</h3>
+            <p>Local agents who live in these towns, not just sell in them.</p>
+          </div>
+          <div class="pillar reveal">
+            <div class="icon-wrap">
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAGwAAAwADAQEAAAAAAAAAAAAAAAEGAgUHAwT/xAA+EAABAgQDBQQIBAUEAwAAAAABAAIDBAURBiExBxJBUZFhcXKBExQiMjRSkrEVRFOCCEJDVKEjJCUzNXPx/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAIBAwT/xAAnEQACAgICAAUEAwAAAAAAAAAAAQIREiEDMRMiQcHRBDJR8IGR8f/aAAwDAQACEQMRAD8A7EUk1cLW6JSsh0eSuELMjaIfyQrhCZiiH8kZ8lboTIURCPJW1kuiZiiKCStSAi1wmQoi0KzsByS6JkKI1JWeixTMUR3kmrAgJEBMxRH+SAq0gbru4qMkyXSkEk3JaCVqdmNUeyuSoYK5WSNiCEkwoKBJCaAOCSCgoBJJpIAQhI6oBFJNJACSEigEUimldAYv0d3FRciP9nA8AVq/3XdxUVJfBwPAFcCWfQNQrhQ41Vukgho7kkKChoSGiEMAoutbX65S8PU58/W5+XkZRuRix37oJ5Aak9guVzmJtxoEd7hRKNiSswgbGNJyB3D3Em/+F0hwznuKMckuzq6RXNKPtpwlPTzZKoRJ6hzbjYMqssYIJ8WYHnZdHY9sRjXw3Nex4Dmuabgg6EHiFk+OXH9yo1NPo9EisHvbDY573BrWglznGwAGpJ4Bc3rW2jCVPn3SMjGna3ONyMOlS5jgHlvZA+V0hxynqKsNpdnSuKRXKW7b6FLvb+N0bElHhONhFm5A7g7yDf8Awuh0GuUzEFPbPUWel56Udl6SC/eseRGoPYQCtnwzhuSCkn0bIrEpkZotmuZokIKSAT/dd3FRcn8JB8A+ys3e67uKjZQWlIPgH2VwJZ7DVW3LuUSra6SERoCSagoFocc4okcHYYna3UyTBl22bDafaivOTWDtJ6C54LfErkG0uGMTbX8E4VmG+kpsuyJWJuGdIm5cMB7PZt+4rrwwU5ebpb/omTpaPPBWAZvFc5DxftOHrs9HHpJKkxL+ryMI5tBZxdaxsfO5069Ba2BCbCgNEKE0WayGN1oHIAZBZniTqkFnJyS5Hv8AwJUazEFDpmIqe+SrkjAn5V4sWR271u0HVp7QQVyWVdPbGsSScjMTUab2fVOL6GDEju3n0yMdGk/IelrnIg37YTZabGGH5TFWGp+jVAH1ebhlu+0XdDcM2vHaCAVXFy4+WX2v9sSV7XZyuciT+2TEk9T5aajSez6mRfQzEaA7dfU4w1aD8g6WscyRbrGH6DS8OU9klQpGXkZZgtuwW2J7XO1ce0krxwfh6UwrhmQotPB9XlIe7vkWMRxzc89pJJ/+Lcg3Tl5MvLH7V+2IqtvswjARYbocYCJDcLFjxvNI7QciuR4zwFM4VnI2MNmjfU6lAaYk5SmA+rz0IZuAZwda5sPKx1685F7Wscwp4+R8b0a1ZocD4nksYYYkq1TrthTDfbhON3Qogycw9oPUWPFb5cj2cwxhnbDjXDML2JCcZDrEpCGjN6weAP3W/aF1tbzQUJeXp7X8mRdrYJJgpFcijF/uu7io2U+Fg+AfZWT/AHXdxUbK/CwfAPsrgTI9grZRKtQUkIjQkjgoKGVyWaJl/wCJ6RdF92aw69kK/NrySB0K6zxXJNucOJQalhTHksxz/wADm/QzjWjMy0XI9DcfuC7/AE+5OP5TRE+rOtOOSGrzl48GalYUxKxGxYEVgiQ4jTcOaRcEd4IWQXAsbs0IIusboBnRYjki6AgB6QQ45rzmI0KWl4seYiNhQYTDEiRHaNaBck9wBQHLIA9P/EzNOhZiVw81sUjgXPBAPULq9+a5LsQZEr9VxXjuYhuY2tTfoZMO1EtCyB8zYftK6yexd/qNSUfwkiYdWHFBQkdVwKMX+67uKjpX4WD4G/ZWLvdd3FR0r8LB8A+yuBMj2GqtCotWZSQiNNYgp3UFDXyVenStXpc3TqjBEaTmoboMWGf5mkZ+fI87L6kInW0Dj2y6rTeDMQxdnOJ4pIhkxKHOPyE1AJJEO/zDOw53bwF+v3zyUrtIwTI44oQk5p7pacgO9NJTsP35aKNCONjYXHnqApvZ1jmfFWdg3HbBK4plhaDHJ/06izg9h0LiB556G4HpmvGXiR79V7/JC8umdPulxWN015iwSKZzWLigFfO5XItqVXm8YV6Hs6wvGs+LZ9bnGZiUlwReHf5jlcdw4m2y2i44nm1VmEMCsE5iqZFosUZw6czjEedA4DOx0yvnYHf7OcEyOCaK6VlXumZ6Yd6WdnYnvzMTiTfOwubDtJ1JXogvCXiS79F7/BD82kUFIp0pR6XKU6nQhBk5WE2DChj+VoGXnxJ5lfYSlwQvO3e2WCSEcUAne6e4qOlfhYPgH2Vi73T3FR0p8JB8DfsqgTI9hqrJRoVjdbIRGsuCxHFF1BRke9Im6V00AcFKbQsEUzG9IbK1DfgTcA+klJ2DlFlonNp4i9rjjbgbFVSV7qoycXcezGr0zleCsbVOk11mDtou5ArAFpGp3tBqLNB7Wgf9zkbHXqYPBT+OcI0vGdCiUyswd5h9qFGZlEgP4PYefZodCoTBuK6phCvQMFbQIu+9/s0msnJk4zQMeTo/QXPHI8CeziuVZQ0/Ve6+Cbx0zrZXKsb43qVVrj8HbOgyYrJFp2pXvBpzNCd7Qv8Aschc6eONMW1TFlfj4J2fxQyMwbtVrIzhyTNCxhGr+FxxyHEi4wNhGlYLocOmUaEWsvvxoz84kd/F7zz5DQaBFFcSyn36L3fwLctI+bZ7gem4IpLpaR35idmD6Scno2cWYfxJPAXJsPublVWiErrhKTk8pdlJVpAUdyEiVhoFFkIQCOju4qNkvg4Hgb9lYu909xUbIZyMv/6x9lcCWfSNVX3UfoQq8rJiJkdED/KRTupKGldCSALoSQgGtDjXC1MxhQY1KrEEvgv9qHEbYRIL+D2HgR0IyK3qOC2MnF2uzKs0GCcKUzB1Bg0qjwi2E32okV9vSR38XvPE/wCAMgt9wQhJScnbCVAkUyksNBCQQgEUISQAdDfkVGU43p8v4ArJ3unuKi6X/wCNlvAFUCWfXxVcSpFVt0mImQRfNJAKkoaVwndYkIB3RfsSt2oKAC5Aci2SLXQBdF80tUWQATZK6LaoOqALouknlZALvRqhIm6AR0PcVF0g3pkv4ArQ5A9yiaMb0yB4VUCWfdxVWHDmOqlCvkjyEtHib8WEHOPFU1ZidFvvDmOqN4cx1UKKXJf27ExTJIflofRTgbkXNxzHVG8OY6qI/DpP+2hfSmJCUH5aF9KYjItt5vzDqjeaOI6qKElKj8vC+kLL1SX/AEIX0hMBkWe835h1QXN+YdVG+rQP0Yf0hP1eCP6UP6QmAyLDfb8zeqW83529VIerwf0of0hL1eD+lD+kJgMiw3m/M3qjeHMdVHGVgH+jC+kJGTluMCF9ATEZFjdvzDqguHMdVGmRlT+XhfSFiafKH8vC+lMDcizLhzHVFxzHVRf4bJ/28PokaXJH8vD6JgZkWZcCDmL25qJoh/4yDfkmaVJX/wChi+qDCZBYGQwGtGgVJUG7P//Z"
+                alt=""
+              />
+            </div>
+            <h3>Trusted</h3>
+            <p>
+              Client-first guidance from offer to closing, with no pressure.
+            </p>
+          </div>
+          <div class="pillar reveal">
+            <div class="icon-wrap">
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACgAKADASIAAhEBAxEB/8QAHAABAQEAAgMBAAAAAAAAAAAAAAcGBAUBAgMI/8QAPxAAAQIEAwIKCAQFBQAAAAAAAAECAwQFEQYHEiExExQVFhdBUVWU0jhWYXWRk7LRCCIzgSMyQlJxJTZisfL/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAJBEBAQABBAMAAgIDAAAAAAAAAAECESExQQMScRMiMoGR4fD/2gAMAwEAAhEDEQA/AP1SAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGSxXmLhbCdQZI16qslZp0NIqQ+Ce9dKqqIq6UVEvZfgWS5bRLZOWtBksKZi4WxXUHyNBqrJqbbDWKsPgnsXSioiqmpERbXT4mtFlx2pLLwAAigAAAAAAAAAAAAAAZfMDG9KwRR1nKm9Xx4l2y0pDX+JHf2NTs3XXcn+bItktukS3TetFNTcvKNR01HhQWuWyLEejUVf3ONyzTO8JP57PuSKh5dVDMCbdiLNFIqJFbaSpEN7obZVi7buttR3s39vYne9BWAu6Yvi4vmOlxwm1rOuV4igcs0zvCT+ez7khqEWlTv4jIbpx8jMSfIdrxXMfD1a1tv2XO+6CsBd0xfFxfMeegvAVrclRrdnG4vmLjcMdd7/wB/bNmd6dBIRKXJfiNiOk3yMvJ8h74TmMh6taX3bLle5ZpneEn89n3MB0F4CtbkqNbs43F8x46CsBd0xfFxfMMrhlpvf8f7MZnOlA5YpneEn89n3ObDiMiw2vhua9jku1zVuip2opMugrAXdMXxcXzGdpM9O5NYhh0WsxYszgafirxGdftWReu1Yb/+P/pP6kJ6Y5fxu7XtZ/KLiD1hvbEhtfDc1zHIitc1boqL1op7HJsAAAAAAAAAAAhOYlIncHZkw8fz0muIKHsZEY9NUSm7kRzE3WRbqi9qreyqji7HrFhsjQnw4rGvhvRWua5Lo5F3oqdaG8M/Ws5Y+0cKg1iQr1Kl6jSZmHMycdupkRi/FFTqVNyou1DnkamsB4qwVXpicyvjSS0ueu6PTJ568HBf/cz2fvdN21LW+/G86O7sLfMd5jV8cu+NT3s5ivAkPG86O7sLfMd5jo1xnmqmL24ZWSw3yqsrxtG/m0cHe382rffqE8VvFifkk6XoEFTGeaq4vXDKSWG+VUleNq382jg72/m1b79R3nG86O7sLfMd5hfFZzYfkl6V4kmdOJoVQYuBKHIQqxiCptRroLkuyUZv4R69Tk3p2b16kX4R4+dMWDEhtk8MQXParUiMeupl+tLqqXT2oprMscBS2DZCLFmIqz1enV4Sen4l1dEcq3VqKu1GovxXavsSTD9rdS25bR2WXeHIuFMH06jTE7EnYssxUdFduuq30t7GpeyexDSAHO3W61uTTYABFAAAAAAAAAABgM2Ma1PCTaHAodOgT8/VZvisNkaIrG3tsTZ1qqom1bHQ85s3fUeleOb5zznh/ujLb34z/tpXDtrMcZs56W27pFzmzd9R6V45vnMy6VzSXMBuLOZ8jxxslxLgOOs4PTe+q+u9z9Bgk8unGML49e358SVzSTMB2LeZ8jxxZLiXAcdZwem99V9d7mm5zZu+o9K8c3zldAvl15xhMNO0i5zZu+o9K8c3znLwvmbOwsRph7MGksoFUj2dKREiaoEdF2aUdtS9/ba+zYuxakZ7HGEKVjOivp1Zg6m7XQozdkSC/wDuavV/jcvWJnjdrF9bN5WhBGcBYqq+FMZwsvcWRkqb3J/p9Qgu1vVllVGxW702Iu1dqdd0VFLMYzxuNXHL2gADLQAAAAAAAAAAJDnrEZBxHl1FjPbDhsrTXOe9URrUTTdVVdyFI5y0LvmmeLh/c4+LcI0PF0rAl8QyDZyFAesSGivcxWqqWXa1UXcZboTy/wDV9niIvmOuuFxkvTnplLbGx5zULvqmeLh/cc5qF31TPFw/uY7oTy/9X2eIi+YnT8t8KJnpDw8lJZyQtIWaWBwr/wBTVbVqvfd1XsXHDDLi0uWU6XbnNQu+qZ4uH9xzloXfNM8XD+5CWZb4UXPV+HlpLOSEpCTSQOFf+pqtq1Xvu6r2KL0J5f8Aq+zxEXzDLDDHm0mWV6bHnLQu+aZ4uH9zBY9zHjOn4WGcvmw6riSaT9WGqPgyjF/rc7ddN/YnX1IvM6E8v/V9niIvmNPhLBmH8IwozMPU2FJ8MqLEciuc51tyK5yqtvZuJr45vN1/e7Omy1y+lMIQYs5NxnVHEU5+ecqMXa57l2q1t9qNv+69fUibkA55ZXK61qSSaQABFAAAAAAAAAAAAAAkUX0m4XuFfrUrpIonpNwvcK/Wp08ffxjPr6Q/Scie4E+tCukih+k5F9wJ9aFdHk6+GHf0ABzbAAAAAAAAAAAAAAAAAAAJFF9JuF7hX61K6RyozctJfiUhRpyYgy8LkLTrivRjbq9dl1Onj7+MZ9PtD9JuL7gT60K6RynzctO/iViRpOYgzELkG2uE9Htuj02XQsY8nXww7+gAObYAAAAAAAAAAAAAAAAAABk8V5d4WxXUGT1epTJqabDSEkThXsXSiqqIulURbXX4msBZbjvEsl5ZPCmXeFsKVB89QaUyVmnQ1hLE4V710qqKqJqVUTcnwNYALblvSSTgABFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//2Q=="
+                alt=""
+              />
+            </div>
+            <h3>Connected</h3>
+            <p>
+              Deep ties to schools, builders, and local businesses across the
+              region.
+            </p>
+          </div>
+          <div class="pillar reveal">
+            <div class="icon-wrap">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+              />
+            </div>
+            <h3>Driven</h3>
+            <p>
+              Premium marketing and sharp negotiation that gets real results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="river-divider">
+      <svg
+        viewBox="0 0 1200 34"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0D2F4F" stop-opacity="0.15" />
+            <stop offset="50%" stop-color="#5D7FA6" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#0D2F4F" stop-opacity="0.15" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,17 C150,2 250,32 400,17 C550,2 650,32 800,17 C950,2 1050,32 1200,17"
+          fill="none"
+          stroke="url(#riverGrad)"
+          stroke-width="2.5"
+        />
+      </svg>
+    </div>
+
+    <!-- ================= FEATURED PROPERTIES ================= -->
+    <section id="properties" class="alt-bg">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Featured Properties
+            </div>
+            <h2>Homes worth the drive up.</h2>
+          </div>
+          <a href="properties.html" class="view-all">View All Listings →</a>
+        </div>
+        <div class="grid-3">
+          <a
+            href="property-detail.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <span class="tag">New Listing</span>
+              <svg
+                viewBox="0 0 400 230"
+                preserveAspectRatio="xMidYMax slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="csky10" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#E7EEEC" />
+                    <stop offset="100%" stop-color="#F2F4F2" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="230" fill="url(#csky10)" />
+                <path
+                  d="M0,150 L100,110 L220,145 L320,100 L400,135 L400,230 L0,230 Z"
+                  fill="#B7C9CC"
+                  opacity="0.55"
+                />
+                <rect
+                  x="0"
+                  y="178"
+                  width="400"
+                  height="52"
+                  fill="#7FA58A"
+                  opacity="0.9"
+                />
+                <path d="M140,150 L200,108 L260,150 Z" fill="#0D2F4F" />
+                <rect x="150" y="150" width="100" height="60" fill="#EFEAE0" />
+                <rect x="225" y="118" width="12" height="26" fill="#0D2F4F" />
+                <rect x="190" y="172" width="20" height="38" fill="#0D2F4F" />
+                <rect x="162" y="165" width="18" height="18" fill="#9FB6C9" />
+                <rect x="220" y="165" width="18" height="18" fill="#9FB6C9" />
+                <path
+                  d="M90,196 L81,214 L85,214 L78,230 L102,230 L95,214 L99,214 Z"
+                  fill="#2E5E3E"
+                />
+                <path
+                  d="M305,196 L296,214 L300,214 L293,230 L317,230 L310,214 L314,214 Z"
+                  fill="#2E5E3E"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <div class="price">$649,000</div>
+              <div class="addr">142 Ridgeline Trail · Blowing Rock, NC</div>
+              <div class="meta">
+                <span>4 BD</span><span>3 BA</span><span>2,840 SF</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="properties.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <span class="tag">Mountain View</span>
+              <svg
+                viewBox="0 0 400 230"
+                preserveAspectRatio="xMidYMax slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="csky11" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#E7EEEC" />
+                    <stop offset="100%" stop-color="#F2F4F2" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="230" fill="url(#csky11)" />
+                <path
+                  d="M0,150 L100,110 L220,145 L320,100 L400,135 L400,230 L0,230 Z"
+                  fill="#B7C9CC"
+                  opacity="0.55"
+                />
+                <rect
+                  x="0"
+                  y="178"
+                  width="400"
+                  height="52"
+                  fill="#7FA58A"
+                  opacity="0.9"
+                />
+                <path d="M140,150 L200,108 L260,150 Z" fill="#2E5E3E" />
+                <rect x="150" y="150" width="100" height="60" fill="#EFEAE0" />
+                <rect x="225" y="118" width="12" height="26" fill="#2E5E3E" />
+                <rect x="190" y="172" width="20" height="38" fill="#2E5E3E" />
+                <rect x="162" y="165" width="18" height="18" fill="#9FB6C9" />
+                <rect x="220" y="165" width="18" height="18" fill="#9FB6C9" />
+                <path
+                  d="M90,196 L81,214 L85,214 L78,230 L102,230 L95,214 L99,214 Z"
+                  fill="#2E5E3E"
+                />
+                <path
+                  d="M305,196 L296,214 L300,214 L293,230 L317,230 L310,214 L314,214 Z"
+                  fill="#2E5E3E"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <div class="price">$415,000</div>
+              <div class="addr">88 Sourwood Lane · Asheville, NC</div>
+              <div class="meta">
+                <span>3 BD</span><span>2 BA</span><span>1,960 SF</span>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="properties.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <span class="tag">Lakefront</span>
+              <svg
+                viewBox="0 0 400 230"
+                preserveAspectRatio="xMidYMax slice"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="csky12" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#E7EEEC" />
+                    <stop offset="100%" stop-color="#F2F4F2" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="230" fill="url(#csky12)" />
+                <path
+                  d="M0,150 L100,110 L220,145 L320,100 L400,135 L400,230 L0,230 Z"
+                  fill="#B7C9CC"
+                  opacity="0.55"
+                />
+                <rect
+                  x="0"
+                  y="178"
+                  width="400"
+                  height="52"
+                  fill="#7FA58A"
+                  opacity="0.9"
+                />
+                <path d="M140,150 L200,108 L260,150 Z" fill="#B9794C" />
+                <rect x="150" y="150" width="100" height="60" fill="#EFEAE0" />
+                <rect x="225" y="118" width="12" height="26" fill="#B9794C" />
+                <rect x="190" y="172" width="20" height="38" fill="#B9794C" />
+                <rect x="162" y="165" width="18" height="18" fill="#9FB6C9" />
+                <rect x="220" y="165" width="18" height="18" fill="#9FB6C9" />
+                <path
+                  d="M90,196 L81,214 L85,214 L78,230 L102,230 L95,214 L99,214 Z"
+                  fill="#2E5E3E"
+                />
+                <path
+                  d="M305,196 L296,214 L300,214 L293,230 L317,230 L310,214 L314,214 Z"
+                  fill="#2E5E3E"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <div class="price">$892,000</div>
+              <div class="addr">21 Heron Cove Road · Brevard, NC</div>
+              <div class="meta">
+                <span>5 BD</span><span>4 BA</span><span>3,510 SF</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED COMMUNITIES ================= -->
+    <section id="communities">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Featured Communities
+            </div>
+            <h2>Mountain towns, not neighborhoods.</h2>
+          </div>
+          <p class="lede">
+            We didn't invent these places — we just know them better than most.
+          </p>
+        </div>
+        <div class="community-scroll">
+          <a class="community-card reveal" href="community-asheville.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E7D9C3" />
+                  <stop offset="100%" stop-color="#C9A876" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky1)" />
+              <circle cx="320" cy="55" r="22" fill="#B9794C" opacity="0.85" />
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#3F6488"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#1E4F7A"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#0D2F4F" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#0D2F4F" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#0D2F4F"
+              />
+            </svg>
+            <div class="label">
+              <h3>Asheville</h3>
+              <p>Arts, breweries &amp; mountain views</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-boone.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#D8E6EE" />
+                  <stop offset="100%" stop-color="#A9C2D6" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky2)" />
+
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#7C99B3"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#3F6488"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#1E4F7A" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#1E4F7A" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#1E4F7A"
+              />
+            </svg>
+            <div class="label">
+              <h3>Boone</h3>
+              <p>College energy, year-round recreation</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-blowing-rock.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#DCE6E8" />
+                  <stop offset="100%" stop-color="#B7C9CC" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky3)" />
+
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#5D7FA6"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#2E5E3E"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#0D2F4F" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#0D2F4F" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#0D2F4F"
+              />
+            </svg>
+            <div class="label">
+              <h3>Blowing Rock</h3>
+              <p>Luxury homes, charming downtown</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-banner-elk.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#EAF0F1" />
+                  <stop offset="100%" stop-color="#CBDAE0" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky4)" />
+
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#9FB6C9"
+                opacity="0.65"
+              />
+              <path d="M70,95 L95,75 L115,95 Z" fill="#F2F4F2" opacity="0.9" />
+              <path
+                d="M230,80 L255,58 L278,80 Z"
+                fill="#F2F4F2"
+                opacity="0.9"
+              />
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#5D7FA6"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#0D2F4F" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#0D2F4F" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#0D2F4F"
+              />
+            </svg>
+            <div class="label">
+              <h3>Banner Elk</h3>
+              <p>Resort living — skiing &amp; golf</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-hendersonville.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#EDE0C8" />
+                  <stop offset="100%" stop-color="#D6BE94" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky5)" />
+              <circle cx="320" cy="55" r="22" fill="#B9794C" opacity="0.85" />
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#8C9FB4"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#3F6488"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#0D2F4F" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#0D2F4F" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#0D2F4F"
+              />
+            </svg>
+            <div class="label">
+              <h3>Hendersonville</h3>
+              <p>Historic downtown &amp; apple orchards</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-brevard.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E3ECE5" />
+                  <stop offset="100%" stop-color="#C7D9C9" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky6)" />
+
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#7FA58A"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#2E5E3E"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#1B3D27" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#1B3D27" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#1B3D27"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#1B3D27"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#1B3D27"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#1B3D27"
+              />
+            </svg>
+            <div class="label">
+              <h3>Brevard</h3>
+              <p>Waterfalls, forests &amp; adventure</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-black-mountain.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky7" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#EAE6DA" />
+                  <stop offset="100%" stop-color="#D7CFB8" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky7)" />
+
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#9FB6C9"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#5D7FA6"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#1E4F7A" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#1E4F7A" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#1E4F7A"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#1E4F7A"
+              />
+            </svg>
+            <div class="label">
+              <h3>Black Mountain</h3>
+              <p>Walkable downtown, mountain charm</p>
+            </div>
+          </a>
+          <a class="community-card reveal" href="community-waynesville.html">
+            <svg
+              viewBox="0 0 400 230"
+              preserveAspectRatio="xMidYMax slice"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="sky8" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E3D9C8" />
+                  <stop offset="100%" stop-color="#BFAE93" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="230" fill="url(#sky8)" />
+              <circle cx="320" cy="55" r="22" fill="#B9794C" opacity="0.85" />
+              <path
+                d="M0,140 L60,80 L115,125 L175,65 L235,120 L300,75 L360,130 L400,95 L400,230 L0,230 Z"
+                fill="#8C9FB4"
+                opacity="0.65"
+              />
+
+              <path
+                d="M0,230 L0,175 L70,120 L140,165 L210,110 L280,170 L340,125 L400,160 L400,230 Z"
+                fill="#3F6488"
+                opacity="0.85"
+              />
+              <path d="M0,230 L0,205 L50,185 L40,230 Z" fill="#0D2F4F" />
+              <path d="M400,230 L400,200 L350,180 L365,230 Z" fill="#0D2F4F" />
+              <path
+                d="M20,196 L11,214 L15,214 L8,230 L32,230 L25,214 L29,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M45,196 L36,214 L40,214 L33,230 L57,230 L50,214 L54,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M355,196 L346,214 L350,214 L343,230 L367,230 L360,214 L364,214 Z"
+                fill="#0D2F4F"
+              />
+              <path
+                d="M375,196 L366,214 L370,214 L363,230 L387,230 L380,214 L384,214 Z"
+                fill="#0D2F4F"
+              />
+            </svg>
+            <div class="label">
+              <h3>Waynesville</h3>
+              <p>Small-town living near the Smokies</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="river-divider">
+      <svg
+        viewBox="0 0 1200 34"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0D2F4F" stop-opacity="0.15" />
+            <stop offset="50%" stop-color="#5D7FA6" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#0D2F4F" stop-opacity="0.15" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,17 C150,2 250,32 400,17 C550,2 650,32 800,17 C950,2 1050,32 1200,17"
+          fill="none"
+          stroke="url(#riverGrad)"
+          stroke-width="2.5"
+        />
+      </svg>
+    </div>
+
+    <!-- ================= MEET THE TEAM ================= -->
+    <section class="alt-bg">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Meet the Team
+            </div>
+            <h2>Local agents, real relationships.</h2>
+          </div>
+        </div>
+        <div class="team-grid">
+          <div class="agent-card reveal">
+            <div class="avatar" style="background: var(--navy)">MS</div>
+            <h3>Maddie Sorrel</h3>
+            <div class="role">Asheville &amp; Black Mountain</div>
+            <p class="bio">
+              A born-and-raised Asheville local who knows which blocks are about
+              to turn over.
+            </p>
+          </div>
+
+          <div class="agent-card reveal">
+            <div class="avatar" style="background: var(--blue)">CW</div>
+            <h3>Caleb Whitfield</h3>
+            <div class="role">Boone &amp; Banner Elk</div>
+            <p class="bio">
+              A former ski instructor turned broker with two decades in the High
+              Country.
+            </p>
+          </div>
+
+          <div class="agent-card reveal">
+            <div class="avatar" style="background: var(--evergreen)">RC</div>
+            <h3>Renata Cole</h3>
+            <div class="role">Blowing Rock &amp; Black Mountain</div>
+            <p class="bio">
+              An interior-design background helps her clients' homes show at
+              their best.
+            </p>
+          </div>
+
+          <div class="agent-card reveal">
+            <div class="avatar" style="background: var(--copper)">DH</div>
+            <h3>Desmond Hale</h3>
+            <div class="role">Hendersonville &amp; Brevard</div>
+            <p class="bio">
+              Orchard-raised and known for answering questions before clients
+              think to ask.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Testimonials
+            </div>
+            <h2>What it's like to work with us.</h2>
+          </div>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial reveal">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="quote">
+              We came from out of state knowing nothing about the area, and our
+              agent treated us like neighbors from day one. We closed on a home
+              in Brevard that we wouldn't have even found on our own.
+            </p>
+            <div class="who">The Ortiz Family — Relocated to Brevard</div>
+          </div>
+          <div class="testimonial reveal">
+            <span class="quote-mark">&ldquo;</span>
+            <p class="quote">
+              Sold our place in Blowing Rock in under three weeks. Smooth
+              process, honest advice the whole way.
+            </p>
+            <div class="who">Tom R. — Seller, Blowing Rock</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MARKET INSIGHTS ================= -->
+    <section id="insights" class="alt-bg">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">
+              <svg
+                class="leaf"
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2l5 7H7l5-7z" />
+                <path d="M12 8l6 8H6l6-8z" />
+                <line x1="12" y1="22" x2="12" y2="14" /></svg
+              >Latest Market Insights
+            </div>
+            <h2>From the blog.</h2>
+          </div>
+          <a href="blog.html" class="view-all">Read the Blog →</a>
+        </div>
+        <div class="grid-3">
+          <a
+            href="blog-moving-to-western-nc.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <svg viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="230" fill="#EFEEE8" />
+                <rect width="400" height="230" fill="#7FA58A" opacity="0.12" />
+                <path
+                  d="M150,170 L185,60 L215,60 L250,170 Z"
+                  fill="none"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <line
+                  x1="200"
+                  y1="80"
+                  x2="200"
+                  y2="100"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <line
+                  x1="196"
+                  y1="115"
+                  x2="204"
+                  y2="115"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <line
+                  x1="190"
+                  y1="140"
+                  x2="210"
+                  y2="140"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <h3 style="font-size: 17px; margin-bottom: 8px">
+                10 Reasons People Are Moving to Western North Carolina
+              </h3>
+              <p style="font-size: 13.5px; color: #5b6a6e">
+                From four-season recreation to a lower cost of living, here's
+                what's drawing new residents to the mountains.
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="blog-buying-mountain-home.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <svg viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="230" fill="#EFEEE8" />
+                <rect width="400" height="230" fill="#7FA58A" opacity="0.12" />
+                <rect
+                  x="140"
+                  y="80"
+                  width="120"
+                  height="90"
+                  fill="none"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <path
+                  d="M140,80 L200,45 L260,80"
+                  fill="none"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <line
+                  x1="170"
+                  y1="120"
+                  x2="170"
+                  y2="170"
+                  stroke="#0D2F4F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="230"
+                  y1="120"
+                  x2="230"
+                  y2="170"
+                  stroke="#0D2F4F"
+                  stroke-width="2.5"
+                />
+                <line
+                  x1="190"
+                  y1="100"
+                  x2="210"
+                  y2="100"
+                  stroke="#0D2F4F"
+                  stroke-width="2.5"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <h3 style="font-size: 17px; margin-bottom: 8px">
+                Buying a Mountain Home: What You Should Know
+              </h3>
+              <p style="font-size: 13.5px; color: #5b6a6e">
+                Slope, septic, and well water — the questions every flatland
+                buyer forgets to ask.
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="blog-hiking-trails-asheville.html"
+            class="prop-card reveal"
+            style="display: block"
+          >
+            <div class="thumb">
+              <svg viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="230" fill="#EFEEE8" />
+                <rect width="400" height="230" fill="#7FA58A" opacity="0.12" />
+                <path
+                  d="M130,165 L175,90 L205,135 L225,105 L270,165 Z"
+                  fill="none"
+                  stroke="#0D2F4F"
+                  stroke-width="3"
+                />
+                <circle
+                  cx="255"
+                  cy="70"
+                  r="14"
+                  fill="none"
+                  stroke="#B9794C"
+                  stroke-width="3"
+                />
+              </svg>
+            </div>
+            <div class="body">
+              <h3 style="font-size: 17px; margin-bottom: 8px">
+                Best Hiking Trails Near Asheville
+              </h3>
+              <p style="font-size: 13.5px; color: #5b6a6e">
+                Five trails locals actually hike, ranked by view-to-effort
+                ratio.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT CTA ================= -->
+    <section id="contact" class="cta-band">
+      <div class="eyebrow" style="justify-content: center; color: #cde0cb">
+        <svg
+          class="leaf"
+          style="color: #cde0cb"
+          viewBox="0 0 24 24"
+          width="13"
+          height="13"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2l5 7H7l5-7z" />
+          <path d="M12 8l6 8H6l6-8z" />
+          <line x1="12" y1="22" x2="12" y2="14" /></svg
+        >Let's Talk
+      </div>
+      <h2>Ready to find your place in the mountains?</h2>
+      <p>
+        Have a question about a listing, a town, or just want to talk through
+        your options? Reach out — there's no pressure, just a conversation.
+      </p>
+      <a href="#" class="btn-light">Contact Us</a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <div class="footer-brand-row">
+            <span class="footer-logo-badge"
+              ><img
+                src="data:image/jpeg;base64,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"
+                alt="Blue Ridge Realty Group"
+            /></span>
+            <span>Blue Ridge Realty Group</span>
+          </div>
+          <p class="desc">
+            Connecting people with homes in the heart of the Blue Ridge
+            Mountains.
+          </p>
+          <div class="social-row">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="#communities">Communities</a></li>
+            <li><a href="#about">Why Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Buy &amp; Sell</h4>
+          <ul>
+            <li><a href="buy.html">Home Buying Process</a></li>
+            <li><a href="buy.html">First-Time Buyers</a></li>
+            <li><a href="sell.html">Free Home Valuation</a></li>
+            <li><a href="sell.html">Seller Resources</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>128 Tunnel Road<br />Asheville, NC 28805</li>
+            <li>(828) 555-0142</li>
+            <li>hello@blueridgerealtygroup.com</li>
+            <li>Mon–Fri 9–6 · Sat 10–4</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Blue Ridge Realty Group</span>
+        <span>Local Roots. Lasting Relationships. Real Results.</span>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const nav = document.getElementById("primaryNav");
+      toggle.addEventListener("click", () => nav.classList.toggle("open"));
+
+      const reveals = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>
